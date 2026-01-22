@@ -4,103 +4,251 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Family Room – Stay Connected with Your Family</title>
-  <meta name="description" content="Family Room helps families chat, share live location, and stay connected securely."/>
+  <meta name="description" content="Family Room is a secure family app for chat, live location sharing, and staying connected in real time."/>
 
   <style>
+    :root {
+      --primary: #4f46e5;
+      --secondary: #6366f1;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --bg: #f6f7fb;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial;
-      background: #f6f7fb;
-      color: #1f2937;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
+
+    /* ---------- HERO ---------- */
     header {
-      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: #fff;
-      padding: 80px 20px;
+      padding: 90px 20px 80px;
       text-align: center;
     }
+
     header h1 {
-      font-size: 42px;
-      margin-bottom: 12px;
+      font-size: 44px;
+      margin-bottom: 14px;
+      letter-spacing: 0.3px;
     }
+
     header p {
       font-size: 18px;
+      max-width: 600px;
+      margin: 0 auto 32px;
       opacity: 0.95;
     }
+
     .btn {
       display: inline-block;
-      margin-top: 28px;
-      padding: 14px 30px;
-      background: #fff;
-      color: #4f46e5;
+      padding: 14px 32px;
+      background: #ffffff;
+      color: var(--primary);
       border-radius: 30px;
       font-weight: 600;
       text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    /* ---------- SECTIONS ---------- */
     .container {
       max-width: 1100px;
       margin: auto;
-      padding: 60px 20px;
+      padding: 70px 20px;
     }
+
+    .section-title {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto 50px;
+    }
+
+    /* ---------- FEATURES ---------- */
     .features {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
+      gap: 26px;
     }
+
     .card {
-      background: #fff;
+      background: var(--card);
       padding: 28px;
-      border-radius: 16px;
+      border-radius: 18px;
       box-shadow: 0 12px 30px rgba(0,0,0,0.06);
     }
+
     .card h3 {
       margin-top: 0;
-      color: #4f46e5;
+      margin-bottom: 8px;
+      color: var(--primary);
+      font-size: 18px;
     }
-    footer {
+
+    .card p {
+      color: #374151;
+      font-size: 15px;
+    }
+
+    /* ---------- SCREENSHOTS ---------- */
+    .screenshots {
+      background: #ffffff;
+      padding: 80px 20px;
+    }
+
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .shot {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
       text-align: center;
-      padding: 30px 20px;
-      font-size: 14px;
-      color: #6b7280;
-      background: #fff;
+      transition: transform 0.2s ease;
     }
+
+    .shot:hover {
+      transform: translateY(-6px);
+    }
+
+    .shot img {
+      width: 100%;
+      border-radius: 14px;
+    }
+
+    .shot span {
+      display: block;
+      margin-top: 12px;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: #ffffff;
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 14px;
+      color: var(--text-light);
+      border-top: 1px solid #e5e7eb;
+    }
+
     footer a {
-      color: #4f46e5;
+      color: var(--primary);
       text-decoration: none;
-      margin: 0 8px;
+      margin: 0 10px;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <header>
   <h1>Family Room</h1>
-  <p>Chat, share live location, and stay connected with your loved ones</p>
-  <a class="btn" href="https://play.google.com/store/apps/details?id=com.kashif.family_room" target="_blank">📲 Download on Play Store</a>
+  <p>
+    A secure family app to chat, share live location,
+    and stay connected with the people who matter most.
+  </p>
+  <a class="btn" href="https://play.google.com/store/apps/details?id=com.kashif.family_room" target="_blank">
+    📲 Download on Play Store
+  </a>
 </header>
 
+<!-- FEATURES -->
 <section class="container">
+  <h2 class="section-title">Why Family Room?</h2>
+  <p class="section-subtitle">
+    Designed for families who want safety, privacy, and real-time connection.
+  </p>
+
   <div class="features">
     <div class="card">
       <h3>💬 Family Chat</h3>
-      <p>Private rooms where families can chat securely in real time.</p>
+      <p>Private, invite-only chat rooms for each family or group.</p>
     </div>
+
     <div class="card">
       <h3>📍 Live Location</h3>
-      <p>See real-time locations of your family members on a live map.</p>
+      <p>See real-time locations of your family members on an interactive map.</p>
     </div>
+
     <div class="card">
       <h3>🗺️ Location History</h3>
-      <p>View movement history for the last 3 days with one tap.</p>
+      <p>Review movement history for the last 3 days whenever needed.</p>
     </div>
+
     <div class="card">
       <h3>🔒 Privacy First</h3>
-      <p>Invite-only rooms with email verification and secure access.</p>
+      <p>Your data stays private — shared only within your rooms.</p>
     </div>
   </div>
 </section>
 
+<!-- SCREENSHOTS -->
+<section class="screenshots">
+  <div class="container">
+    <h2 class="section-title">App Screenshots</h2>
+    <p class="section-subtitle">
+      A quick look at how Family Room works in real life.
+    </p>
+
+    <div class="screenshot-grid">
+      <div class="shot">
+        <img src="assets/screenshots/rooms.png" alt="Family Room dashboard" loading="lazy">
+        <span>Rooms Dashboard</span>
+      </div>
+
+      <div class="shot">
+        <img src="assets/screenshots/chat.png" alt="Family chat screen" loading="lazy">
+        <span>Family Chat</span>
+      </div>
+
+      <div class="shot">
+        <img src="assets/screenshots/map.png" alt="Live location map" loading="lazy">
+        <span>Live Location Map</span>
+      </div>
+
+      <div class="shot">
+        <img src="assets/screenshots/history.png" alt="Location history screen" loading="lazy">
+        <span>Location History</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
   © 2026 Family Room |
   <a href="privacy.html">Privacy Policy</a> |
