@@ -3,469 +3,681 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dashboard Demo | Family Room Technologies</title>
+  <title>Family Room Technologies | Custom Android App Development</title>
+  <meta name="description" content="We build custom Android apps, tracking systems, delivery apps, business software, dashboards, and workforce management solutions for global businesses." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      background: #f4f7fb;
+      background: #f8fafc;
       color: #111827;
       overflow-x: hidden;
     }
 
-    .sidebar {
-      width: 270px;
-      height: 100vh;
-      background: #111827;
-      position: fixed;
-      left: 0;
-      top: 0;
-      padding: 25px;
-      overflow-y: auto;
-    }
-
-    .logo {
-      color: white;
-      font-size: 28px;
-      font-weight: 800;
-      margin-bottom: 40px;
-    }
-
-    .sidebar-menu {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .sidebar-menu a {
+    a {
       text-decoration: none;
-      color: #cbd5e1;
-      padding: 14px 16px;
-      border-radius: 12px;
-      transition: 0.3s;
-      font-weight: 500;
     }
 
-    .sidebar-menu a:hover,
-    .sidebar-menu .active {
-      background: #2563eb;
-      color: white;
+    .container {
+      width: 92%;
+      max-width: 1300px;
+      margin: auto;
     }
 
-    .main {
-      margin-left: 270px;
-      padding: 30px;
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
     }
 
-    .topbar {
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 35px;
-      flex-wrap: wrap;
-      gap: 20px;
+      padding: 20px 0;
     }
 
-    .topbar h1 {
-      font-size: 34px;
+    .logo {
+      font-size: 30px;
       font-weight: 800;
+      color: #2563eb;
     }
 
-    .topbar p {
-      color: #64748b;
-      margin-top: 8px;
+    .logo span {
+      color: #111827;
     }
 
-    .demo-btn {
-      background: #2563eb;
-      color: white;
-      text-decoration: none;
-      padding: 14px 24px;
-      border-radius: 12px;
-      font-weight: 600;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: #374151;
+      font-weight: 500;
       transition: 0.3s;
     }
 
-    .demo-btn:hover {
-      background: #1d4ed8;
-      transform: translateY(-2px);
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .primary-btn {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: white !important;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(37,99,235,0.2);
+    }
+
+    .hero {
+      padding: 100px 0 80px;
+      background:
+        radial-gradient(circle at top left, #dbeafe, transparent 35%),
+        radial-gradient(circle at bottom right, #bfdbfe, transparent 35%),
+        #f8fafc;
+    }
+
+    .hero-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 70px;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    .hero-content h1 {
+      font-size: 64px;
+      line-height: 1.1;
+      margin-bottom: 25px;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .hero-content h1 span {
+      color: #2563eb;
+    }
+
+    .hero-content p {
+      font-size: 19px;
+      line-height: 1.9;
+      color: #475569;
+      margin-bottom: 35px;
+      max-width: 700px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .secondary-btn {
+      background: white;
+      color: #2563eb;
+      border: 2px solid #2563eb;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-weight: 600;
+    }
+
+    .hero-image {
+      flex: 1;
+      min-width: 320px;
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 30px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 48px;
+      margin-bottom: 18px;
+      color: #0f172a;
+    }
+
+    .section-title p {
+      max-width: 850px;
+      margin: auto;
+      line-height: 1.9;
+      color: #64748b;
+      font-size: 17px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 26px;
+      padding: 35px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+      transition: 0.3s;
+      border: 1px solid #eef2ff;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin-bottom: 25px;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      color: white;
+    }
+
+    .service-card h3 {
+      margin-bottom: 18px;
+      font-size: 24px;
+    }
+
+    .service-card p {
+      line-height: 1.9;
+      color: #64748b;
+    }
+
+    .portfolio {
+      background: #0f172a;
+      color: white;
+    }
+
+    .portfolio .section-title h2,
+    .portfolio .section-title p {
+      color: white;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .portfolio-card {
+      background: #1e293b;
+      border-radius: 28px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .portfolio-content {
+      padding: 28px;
+    }
+
+    .portfolio-content h3 {
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .portfolio-content p {
+      line-height: 1.8;
+      color: #cbd5e1;
+    }
+
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .industry-card {
+      background: white;
+      padding: 28px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .stats {
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: white;
     }
 
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-      margin-bottom: 35px;
-    }
-
-    .stat-card {
-      background: white;
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      gap: 25px;
+      text-align: center;
     }
 
     .stat-card h2 {
-      font-size: 36px;
+      font-size: 50px;
       margin-bottom: 10px;
-      color: #2563eb;
     }
 
-    .stat-card p {
-      color: #64748b;
-      font-size: 15px;
+    .cta-box {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      border-radius: 35px;
+      padding: 80px 40px;
+      text-align: center;
     }
 
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 25px;
+    .cta-box h2 {
+      font-size: 52px;
+      margin-bottom: 20px;
+    }
+
+    .cta-box p {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.9;
+      color: #cbd5e1;
       margin-bottom: 35px;
+      font-size: 18px;
     }
 
-    .card {
-      background: white;
-      border-radius: 24px;
-      padding: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    footer {
+      background: #020617;
+      color: white;
+      padding: 70px 0 35px;
     }
 
-    .card h3 {
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 35px;
+      margin-bottom: 45px;
+    }
+
+    .footer-grid h3 {
       margin-bottom: 20px;
       font-size: 22px;
     }
 
-    .map-placeholder {
-      height: 420px;
-      border-radius: 18px;
-      overflow: hidden;
-      position: relative;
-      background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1400&auto=format&fit=crop') center/cover;
+    .footer-grid p,
+    .footer-grid a {
+      color: #cbd5e1;
+      line-height: 2;
     }
 
-    .map-overlay {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: rgba(255,255,255,0.95);
-      padding: 12px 18px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 600;
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 25px;
+      text-align: center;
+      color: #94a3b8;
     }
 
-    .employee-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .employee-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px;
-      background: #f8fafc;
-      border-radius: 14px;
-    }
-
-    .employee-info {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .avatar {
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: #2563eb;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 700;
-    }
-
-    .status {
-      padding: 7px 12px;
-      border-radius: 30px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .online {
-      background: #dcfce7;
-      color: #166534;
-    }
-
-    .offline {
-      background: #fee2e2;
-      color: #991b1b;
-    }
-
-    .table-card {
-      background: white;
-      border-radius: 24px;
-      padding: 25px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 700px;
-    }
-
-    table th {
-      text-align: left;
-      padding: 16px;
-      color: #64748b;
-      font-size: 14px;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    table td {
-      padding: 18px 16px;
-      border-bottom: 1px solid #f1f5f9;
-      font-size: 15px;
-    }
-
-    .completed {
-      color: #15803d;
-      font-weight: 600;
-    }
-
-    .progress {
-      color: #d97706;
-      font-weight: 600;
-    }
-
-    .floating-whatsapp {
+    .whatsapp {
       position: fixed;
       bottom: 25px;
       right: 25px;
-      width: 65px;
-      height: 65px;
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       background: #25D366;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 30px;
-      text-decoration: none;
       color: white;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      font-size: 34px;
+      text-decoration: none;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+      z-index: 999;
     }
 
     @media(max-width: 992px) {
-      .dashboard-grid {
-        grid-template-columns: 1fr;
+      .hero-content h1 {
+        font-size: 48px;
       }
     }
 
     @media(max-width: 768px) {
-      .sidebar {
+      .nav-links {
         display: none;
       }
 
-      .main {
-        margin-left: 0;
-        padding: 20px;
+      .hero {
+        padding-top: 70px;
       }
 
-      .topbar h1 {
-        font-size: 26px;
+      .hero-content h1,
+      .section-title h2,
+      .cta-box h2 {
+        font-size: 38px;
+      }
+
+      .hero-content p,
+      .section-title p,
+      .cta-box p {
+        font-size: 16px;
       }
     }
   </style>
 </head>
 <body>
 
-<div class="sidebar">
-  <div class="logo">Family Room</div>
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">Family Room <span>Technologies</span></div>
 
-  <div class="sidebar-menu">
-    <a href="#" class="active">Dashboard</a>
-    <a href="#">Live Tracking</a>
-    <a href="#">Attendance</a>
-    <a href="#">Employees</a>
-    <a href="#">Tasks</a>
-    <a href="#">Reports</a>
-    <a href="#">Route History</a>
-    <a href="#">Settings</a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#industries">Industries</a>
+        <a href="#contact">Contact</a>
+        <a href="https://wa.me/918521988388" class="primary-btn">Get Free Demo</a>
+      </div>
+    </nav>
   </div>
-</div>
+</header>
 
-<div class="main">
+<section class="hero">
+  <div class="container hero-wrapper">
 
-  <div class="topbar">
-    <div>
-      <h1>Business Dashboard Demo</h1>
-      <p>Custom Android Apps • Employee Tracking • Business Automation</p>
-    </div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        🚀 Trusted Android App Development Solutions
+      </div>
 
-    <a href="https://wa.me/918521988388" class="demo-btn">Request Live Demo</a>
-  </div>
+      <h1>
+        Turn Your Idea Into A <span>Powerful Android App</span>
+      </h1>
 
-  <div class="stats-grid">
+      <p>
+        We build custom Android apps, business management systems, employee tracking solutions,
+        delivery platforms, dashboards, website-to-app conversions, and scalable software for
+        startups and businesses worldwide.
+      </p>
 
-    <div class="stat-card">
-      <h2>248</h2>
-      <p>Total Employees</p>
-    </div>
-
-    <div class="stat-card">
-      <h2>198</h2>
-      <p>Employees Online</p>
-    </div>
-
-    <div class="stat-card">
-      <h2>43</h2>
-      <p>Tasks In Progress</p>
-    </div>
-
-    <div class="stat-card">
-      <h2>97%</h2>
-      <p>Attendance Rate</p>
-    </div>
-
-  </div>
-
-  <div class="dashboard-grid">
-
-    <div class="card">
-      <h3>Live Employee Tracking</h3>
-
-      <div class="map-placeholder">
-        <div class="map-overlay">
-          ● 198 Employees Currently Active
-        </div>
+      <div class="hero-buttons">
+        <a href="https://wa.me/918521988388" class="primary-btn">Chat On WhatsApp</a>
+        <a href="#portfolio" class="secondary-btn">View Demo Projects</a>
       </div>
     </div>
 
-    <div class="card">
-      <h3>Employee Status</h3>
-
-      <div class="employee-list">
-
-        <div class="employee-item">
-          <div class="employee-info">
-            <div class="avatar">A</div>
-            <div>
-              <strong>Alex Johnson</strong><br>
-              <small>Field Executive</small>
-            </div>
-          </div>
-
-          <div class="status online">Online</div>
-        </div>
-
-        <div class="employee-item">
-          <div class="employee-info">
-            <div class="avatar">S</div>
-            <div>
-              <strong>Sarah Smith</strong><br>
-              <small>Delivery Manager</small>
-            </div>
-          </div>
-
-          <div class="status online">Tracking</div>
-        </div>
-
-        <div class="employee-item">
-          <div class="employee-info">
-            <div class="avatar">M</div>
-            <div>
-              <strong>Michael Lee</strong><br>
-              <small>Sales Executive</small>
-            </div>
-          </div>
-
-          <div class="status offline">Offline</div>
-        </div>
-
-        <div class="employee-item">
-          <div class="employee-info">
-            <div class="avatar">R</div>
-            <div>
-              <strong>Robert Davis</strong><br>
-              <small>Support Staff</small>
-            </div>
-          </div>
-
-          <div class="status online">Working</div>
-        </div>
-
-      </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1400&auto=format&fit=crop" alt="Android App Development">
     </div>
 
   </div>
+</section>
 
-  <div class="table-card">
-    <h3 style="margin-bottom: 20px;">Recent Tasks & Operations</h3>
+<section id="services">
+  <div class="container">
 
-    <table>
-      <thead>
-        <tr>
-          <th>Employee</th>
-          <th>Department</th>
-          <th>Assigned Task</th>
-          <th>Status</th>
-          <th>Updated</th>
-        </tr>
-      </thead>
+    <div class="section-title">
+      <h2>Solutions We Build</h2>
+      <p>
+        We create modern mobile applications and business software tailored for different industries and client requirements.
+      </p>
+    </div>
 
-      <tbody>
-        <tr>
-          <td>Alex Johnson</td>
-          <td>Field Team</td>
-          <td>Customer Visit</td>
-          <td class="completed">Completed</td>
-          <td>10 mins ago</td>
-        </tr>
+    <div class="services-grid">
 
-        <tr>
-          <td>Sarah Smith</td>
-          <td>Delivery</td>
-          <td>Route Tracking</td>
-          <td class="progress">In Progress</td>
-          <td>5 mins ago</td>
-        </tr>
+      <div class="service-card">
+        <div class="service-icon">📱</div>
+        <h3>Custom Android Apps</h3>
+        <p>Professional Android applications for startups, businesses, and unique client ideas.</p>
+      </div>
 
-        <tr>
-          <td>Michael Lee</td>
-          <td>Sales</td>
-          <td>Client Meeting</td>
-          <td class="progress">Pending</td>
-          <td>20 mins ago</td>
-        </tr>
+      <div class="service-card">
+        <div class="service-icon">📍</div>
+        <h3>Live Tracking Systems</h3>
+        <p>GPS tracking, employee monitoring, delivery tracking, route history, and geofencing solutions.</p>
+      </div>
 
-        <tr>
-          <td>Robert Davis</td>
-          <td>Support</td>
-          <td>Attendance Review</td>
-          <td class="completed">Completed</td>
-          <td>2 mins ago</td>
-        </tr>
-      </tbody>
-    </table>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Business Management</h3>
+        <p>Attendance systems, task management, CRM dashboards, and workforce automation software.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🛒</div>
+        <h3>Ecommerce Applications</h3>
+        <p>Online shopping apps, ordering systems, payment integrations, and delivery management.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🌐</div>
+        <h3>Website To App</h3>
+        <p>Convert your existing website into a smooth Android mobile application quickly.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Admin Dashboards</h3>
+        <p>Modern admin panels with analytics, reporting, real-time monitoring, and cloud management.</p>
+      </div>
+
+    </div>
+
   </div>
+</section>
 
-</div>
+<section id="portfolio" class="portfolio">
+  <div class="container">
 
-<a href="https://wa.me/918521988388" class="floating-whatsapp">
+    <div class="section-title">
+      <h2>Featured Demo Projects</h2>
+      <p>
+        Real business-ready applications and dashboards developed for workforce management, operations, and business automation.
+      </p>
+    </div>
+
+    <div class="portfolio-grid">
+
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200&auto=format&fit=crop" alt="Tracking App">
+
+        <div class="portfolio-content">
+          <h3>Family Room Workforce Platform</h3>
+          <p>
+            Advanced employee tracking platform with live GPS monitoring, attendance management,
+            route history, and workforce communication.
+          </p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop" alt="Business Dashboard">
+
+        <div class="portfolio-content">
+          <h3>Business Dashboard System</h3>
+          <p>
+            Modern admin dashboard with analytics, task management, operations monitoring,
+            and employee productivity tracking.
+          </p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200&auto=format&fit=crop" alt="Delivery App">
+
+        <div class="portfolio-content">
+          <h3>Delivery & Tracking Application</h3>
+          <p>
+            Smart delivery management platform with live location, order tracking,
+            route optimization, and customer updates.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="industries">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Industries We Serve</h2>
+      <p>
+        Flexible solutions built for different businesses and operational needs.
+      </p>
+    </div>
+
+    <div class="industries-grid">
+      <div class="industry-card">🚚 Logistics & Delivery</div>
+      <div class="industry-card">🏫 Schools & Education</div>
+      <div class="industry-card">🏥 Healthcare Services</div>
+      <div class="industry-card">🛍 Ecommerce Businesses</div>
+      <div class="industry-card">🏢 Corporate Teams</div>
+      <div class="industry-card">📦 Inventory Management</div>
+      <div class="industry-card">🍔 Restaurant Businesses</div>
+      <div class="industry-card">📍 Field Workforce</div>
+    </div>
+
+  </div>
+</section>
+
+<section class="stats">
+  <div class="container">
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <h2>24/7</h2>
+        <p>Project Support</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>Fast</h2>
+        <p>App Delivery</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>Cloud</h2>
+        <p>Scalable Solutions</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>Global</h2>
+        <p>Client Reach</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="container">
+
+    <div class="cta-box">
+      <h2>Need A Custom Mobile App?</h2>
+
+      <p>
+        Whether you need a business app, workforce management solution, ecommerce platform,
+        delivery system, admin dashboard, or startup application — we can help turn your idea into reality.
+      </p>
+
+      <a href="https://wa.me/918521988388" class="primary-btn">
+        Get Free Consultation
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>Family Room Technologies</h3>
+
+        <p>
+          Professional Android app development and business software solutions for startups,
+          businesses, and organizations worldwide.
+        </p>
+      </div>
+
+      <div>
+        <h3>Services</h3>
+
+        <p>Custom Android Apps</p>
+        <p>Tracking Systems</p>
+        <p>Business Dashboards</p>
+        <p>Website To App</p>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+
+        <p>Email: officialfamilyroom@outlook.com</p>
+        <p>WhatsApp: +91 8521988388</p>
+        <p>Website: familyroom.in</p>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Family Room Technologies. All Rights Reserved.
+    </div>
+
+  </div>
+</footer>
+
+<a href="https://wa.me/918521988388" class="whatsapp">
   💬
 </a>
 
