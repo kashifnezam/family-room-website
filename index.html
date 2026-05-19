@@ -2,259 +2,502 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Family Room – Stay Connected with Your Family</title>
-  <meta name="description" content="Family Room is a secure family app for chat, live location sharing, and staying connected in real time."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Family Room | Employee Tracking & Workforce Management</title>
+  <meta name="description" content="Family Room helps businesses manage employees with live location tracking, attendance, task management, and workforce monitoring." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --primary: #4f46e5;
-      --secondary: #6366f1;
-      --text-dark: #1f2937;
-      --text-light: #6b7280;
-      --bg: #f6f7fb;
-      --card: #ffffff;
-    }
-
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
     body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text-dark);
-      line-height: 1.6;
+      background: #f7f9fc;
+      color: #222;
+      overflow-x: hidden;
     }
 
-    /* ---------- HERO ---------- */
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
     header {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #fff;
-      padding: 90px 20px 80px;
-      text-align: center;
+      background: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
     }
 
-    header h1 {
-      font-size: 44px;
-      margin-bottom: 14px;
-      letter-spacing: 0.3px;
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
     }
 
-    header p {
-      font-size: 18px;
-      max-width: 600px;
-      margin: 0 auto 32px;
-      opacity: 0.95;
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #333;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
     }
 
     .btn {
+      background: #2563eb;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 10px;
       display: inline-block;
-      padding: 14px 32px;
-      background: #ffffff;
-      color: var(--primary);
-      border-radius: 30px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: 0.3s;
+      font-weight: 500;
     }
 
     .btn:hover {
+      background: #1d4ed8;
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    /* ---------- SECTIONS ---------- */
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 70px 20px;
+    .hero {
+      padding: 90px 0;
+      background: linear-gradient(135deg, #eff6ff, #ffffff);
+    }
+
+    .hero-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-text h1 {
+      font-size: 55px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .secondary-btn {
+      background: white;
+      border: 2px solid #2563eb;
+      color: #2563eb;
+    }
+
+    .hero-image {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    section {
+      padding: 90px 0;
     }
 
     .section-title {
       text-align: center;
-      font-size: 28px;
+      margin-bottom: 60px;
+    }
+
+    .section-title h2 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      color: #111827;
+    }
+
+    .section-title p {
+      color: #666;
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .feature-card {
+      background: white;
+      padding: 35px 25px;
+      border-radius: 18px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+      transition: 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .feature-card h3 {
+      margin-bottom: 15px;
+      color: #2563eb;
+    }
+
+    .feature-card p {
+      color: #555;
+      line-height: 1.7;
+    }
+
+    .stats {
+      background: #2563eb;
+      color: white;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 25px;
+      text-align: center;
+    }
+
+    .stat-card h2 {
+      font-size: 45px;
       margin-bottom: 10px;
     }
 
-    .section-subtitle {
-      text-align: center;
-      color: var(--text-light);
-      max-width: 600px;
-      margin: 0 auto 50px;
-    }
-
-    /* ---------- FEATURES ---------- */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 26px;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 28px;
-      border-radius: 18px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
-      color: var(--primary);
-      font-size: 18px;
-    }
-
-    .card p {
-      color: #374151;
-      font-size: 15px;
-    }
-
-    /* ---------- SCREENSHOTS ---------- */
     .screenshots {
-      background: #ffffff;
-      padding: 80px 20px;
+      background: #f1f5f9;
     }
 
     .screenshot-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
     }
 
-    .shot {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 16px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-      text-align: center;
-      transition: transform 0.2s ease;
-    }
-
-    .shot:hover {
-      transform: translateY(-6px);
-    }
-
-    .shot img {
+    .screenshot-grid img {
       width: 100%;
-      border-radius: 14px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
     }
 
-    .shot span {
-      display: block;
-      margin-top: 12px;
-      font-size: 14px;
-      color: #374151;
-    }
-
-    /* ---------- FOOTER ---------- */
-    footer {
-      background: #ffffff;
+    .cta {
+      background: linear-gradient(135deg, #2563eb, #1e40af);
+      color: white;
       text-align: center;
-      padding: 32px 20px;
-      font-size: 14px;
-      color: var(--text-light);
-      border-top: 1px solid #e5e7eb;
+      border-radius: 30px;
+      padding: 70px 30px;
     }
 
-    footer a {
-      color: var(--primary);
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 500;
+    .cta h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    .cta p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .footer-grid h3 {
+      margin-bottom: 15px;
+    }
+
+    .footer-grid p,
+    .footer-grid a {
+      color: #d1d5db;
+      line-height: 2;
+    }
+
+    .copyright {
+      text-align: center;
+      color: #9ca3af;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 30px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    @media(max-width: 768px) {
+      .hero-text h1 {
+        font-size: 38px;
+      }
+
+      .section-title h2,
+      .cta h2 {
+        font-size: 32px;
+      }
+
+      .nav-links {
+        display: none;
+      }
     }
   </style>
 </head>
-
 <body>
 
-<!-- HERO -->
 <header>
-  <h1>Family Room</h1>
-  <p>
-    A secure family app to chat, share live location,
-    and stay connected with the people who matter most.
-  </p>
-  <a class="btn" href="https://play.google.com/store/apps/details?id=com.kashif.family_room" target="_blank">
-    📲 Download on Play Store
-  </a>
+  <div class="container">
+    <nav>
+      <div class="logo">Family Room</div>
+
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#contact">Contact</a>
+        <a href="https://wa.me/918521988388" class="btn">WhatsApp</a>
+      </div>
+    </nav>
+  </div>
 </header>
 
-<!-- FEATURES -->
-<section class="container">
-  <h2 class="section-title">Why Family Room?</h2>
-  <p class="section-subtitle">
-    Designed for families who want safety, privacy, and real-time connection.
-  </p>
+<section class="hero">
+  <div class="container hero-wrapper">
 
-  <div class="features">
-    <div class="card">
-      <h3>💬 Family Chat</h3>
-      <p>Private, invite-only chat rooms for each family or group.</p>
+    <div class="hero-text">
+      <h1>Smart Employee Tracking & Workforce Management Solution</h1>
+
+      <p>
+        Family Room helps businesses manage field employees with live location tracking,
+        attendance monitoring, task management, movement history, and team communication.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="https://wa.me/918521988388" class="btn">Book Free Demo</a>
+        <a href="#features" class="btn secondary-btn">Explore Features</a>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>📍 Live Location</h3>
-      <p>See real-time locations of your family members on an interactive map.</p>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop" alt="Family Room App">
     </div>
 
-    <div class="card">
-      <h3>🗺️ Location History</h3>
-      <p>Review movement history for the last 3 days whenever needed.</p>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Powerful Features</h2>
+      <p>
+        Designed for businesses that need real-time employee visibility and better workforce productivity.
+      </p>
     </div>
 
-    <div class="card">
-      <h3>🔒 Privacy First</h3>
-      <p>Your data stays private — shared only within your rooms.</p>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <h3>Live GPS Tracking</h3>
+        <p>Track your field staff live on the map with accurate movement updates and real-time visibility.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Attendance Monitoring</h3>
+        <p>Monitor employee attendance, working hours, overtime, and daily activity from a single dashboard.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Route History</h3>
+        <p>Review previous routes and employee movement history for improved reporting and accountability.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Team Communication</h3>
+        <p>Employees can communicate directly through integrated chat functionality inside the application.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Task Management</h3>
+        <p>Assign tasks to employees and monitor completion status in real time.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Business Dashboard</h3>
+        <p>Professional admin dashboard to manage workforce operations efficiently.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- SCREENSHOTS -->
-<section class="screenshots">
+<section class="stats">
   <div class="container">
-    <h2 class="section-title">App Screenshots</h2>
-    <p class="section-subtitle">
-      A quick look at how Family Room works in real life.
-    </p>
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <h2>24/7</h2>
+        <p>Location Monitoring</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>GPS</h2>
+        <p>Real-Time Tracking</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>Cloud</h2>
+        <p>Secure Data Storage</p>
+      </div>
+
+      <div class="stat-card">
+        <h2>Mobile</h2>
+        <p>Android Application</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="screenshots" class="screenshots">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Application Screenshots</h2>
+      <p>
+        Replace these images with your actual Family Room app screenshots for a professional portfolio.
+      </p>
+    </div>
 
     <div class="screenshot-grid">
-      <div class="shot">
-        <img src="assets/screenshots/rooms.png" alt="Family Room dashboard" loading="lazy">
-        <span>Rooms Dashboard</span>
-      </div>
+      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=1200&auto=format&fit=crop" alt="App Screenshot">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Dashboard Screenshot">
+      <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=1200&auto=format&fit=crop" alt="Tracking Screenshot">
+    </div>
 
-      <div class="shot">
-        <img src="assets/screenshots/chat.png" alt="Family chat screen" loading="lazy">
-        <span>Family Chat</span>
-      </div>
+  </div>
+</section>
 
-      <div class="shot">
-        <img src="assets/screenshots/map.png" alt="Live location map" loading="lazy">
-        <span>Live Location Map</span>
-      </div>
+<section>
+  <div class="container">
+    <div class="cta">
+      <h2>Need Employee Tracking Software?</h2>
 
-      <div class="shot">
-        <img src="assets/screenshots/history.png" alt="Location history screen" loading="lazy">
-        <span>Location History</span>
-      </div>
+      <p>
+        Get a complete workforce management solution with live location tracking,
+        attendance management, route monitoring, and team coordination.
+      </p>
+
+      <a href="https://wa.me/918521988388" class="btn">Chat on WhatsApp</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  © 2026 Family Room |
-  <a href="privacy.html">Privacy Policy</a> |
-  <a href="terms.html">Terms</a> |
-  <a href="support.html">Support</a>
+<footer id="contact">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>Family Room</h3>
+        <p>
+          Workforce management and employee tracking solution designed for modern businesses.
+        </p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <a href="#features">Features</a><br>
+        <a href="#screenshots">Screenshots</a><br>
+        <a href="privacy-policy.html">Privacy Policy</a>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>Email: officialfamilyroom@outlook.com</p>
+        <p>WhatsApp: +91 8521988388</p>
+        <p>Website: familyroom.in</p>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 Family Room. All Rights Reserved.
+    </div>
+
+  </div>
 </footer>
+
+<a class="whatsapp-float" href="https://wa.me/918521988388">
+  💬
+</a>
 
 </body>
 </html>
