@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Family Room Technologies | Custom Android App Development</title>
 
   <meta
     name="description"
-    content="Custom Android app development company building workforce management, delivery tracking, ecommerce, business dashboards and school management applications."
+    content="Custom Android app development company building workforce management, delivery tracking, ecommerce, dashboard and school management applications."
   />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +18,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet"
-  />
+  >
 
   <style>
 
@@ -28,10 +29,14 @@
       font-family:'Poppins',sans-serif;
     }
 
+    html{
+      scroll-behavior:smooth;
+    }
+
     body{
-      background:#f7f9fc;
-      color:#111827;
+      background:#07111f;
       overflow-x:hidden;
+      color:white;
     }
 
     a{
@@ -44,12 +49,18 @@
       margin:auto;
     }
 
+    /* ========================= */
+    /* NAVBAR */
+    /* ========================= */
+
     header{
-      position:sticky;
+      position:fixed;
+      width:100%;
       top:0;
       z-index:999;
-      background:white;
-      box-shadow:0 2px 15px rgba(0,0,0,0.05);
+      background:rgba(7,17,31,0.7);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,0.06);
     }
 
     nav{
@@ -62,7 +73,7 @@
     .logo{
       font-size:28px;
       font-weight:800;
-      color:#2563eb;
+      color:#60a5fa;
     }
 
     .nav-links{
@@ -72,74 +83,91 @@
     }
 
     .nav-links a{
-      color:#374151;
-      font-weight:500;
+      color:#dbeafe;
+      font-size:15px;
       transition:.3s;
     }
 
     .nav-links a:hover{
-      color:#2563eb;
+      color:#60a5fa;
     }
 
-    .btn{
-      background:#2563eb;
-      color:white !important;
+    .nav-btn{
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
       padding:14px 24px;
-      border-radius:12px;
+      border-radius:14px;
+      color:white !important;
       font-weight:600;
-      transition:.3s;
+      box-shadow:0 10px 30px rgba(37,99,235,0.35);
     }
 
-    .btn:hover{
-      transform:translateY(-2px);
-      background:#1d4ed8;
-    }
+    /* ========================= */
+    /* HERO */
+    /* ========================= */
 
     .hero{
+      position:relative;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      padding:120px 0 80px;
       background:
-      radial-gradient(circle at top left,#dbeafe,transparent 30%),
-      radial-gradient(circle at bottom right,#bfdbfe,transparent 30%),
-      #0f172a;
+      radial-gradient(circle at top left,#2563eb33,transparent 30%),
+      radial-gradient(circle at bottom right,#7c3aed33,transparent 30%),
+      #07111f;
+    }
 
-      padding:90px 0;
-      color:white;
+    .hero-glow{
+      position:absolute;
+      width:700px;
+      height:700px;
+      background:#2563eb;
+      filter:blur(180px);
+      opacity:0.12;
+      top:-250px;
+      right:-250px;
     }
 
     .hero-wrapper{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:60px;
+      gap:50px;
       flex-wrap:wrap;
+      position:relative;
+      z-index:2;
     }
 
-    .hero-content{
+    .hero-left{
       flex:1;
       min-width:320px;
     }
 
     .hero-badge{
       display:inline-block;
-      background:rgba(255,255,255,0.1);
       padding:10px 18px;
       border-radius:30px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      color:#60a5fa;
       margin-bottom:25px;
+      backdrop-filter:blur(12px);
       font-size:14px;
-      backdrop-filter:blur(10px);
     }
 
-    .hero-content h1{
-      font-size:64px;
-      line-height:1.1;
+    .hero-left h1{
+      font-size:70px;
+      line-height:1.05;
       margin-bottom:25px;
       font-weight:800;
     }
 
-    .hero-content h1 span{
+    .hero-left h1 span{
       color:#60a5fa;
     }
 
-    .hero-content p{
+    .hero-left p{
       color:#cbd5e1;
       line-height:1.9;
       font-size:18px;
@@ -151,183 +179,389 @@
       display:flex;
       gap:18px;
       flex-wrap:wrap;
+      margin-bottom:40px;
+    }
+
+    .primary-btn{
+      background:linear-gradient(135deg,#2563eb,#1d4ed8);
+      padding:16px 28px;
+      border-radius:16px;
+      color:white;
+      font-weight:600;
+      box-shadow:0 12px 35px rgba(37,99,235,0.35);
+      transition:.3s;
+    }
+
+    .primary-btn:hover{
+      transform:translateY(-4px);
     }
 
     .secondary-btn{
-      border:2px solid rgba(255,255,255,0.2);
-      background:transparent;
-      color:white !important;
+      border:1px solid rgba(255,255,255,0.12);
+      padding:16px 28px;
+      border-radius:16px;
+      color:white;
+      backdrop-filter:blur(10px);
+      font-weight:600;
     }
 
-    .hero-image{
+    .hero-stats{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .stat-box{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.06);
+      padding:20px 25px;
+      border-radius:22px;
+      min-width:140px;
+      backdrop-filter:blur(12px);
+    }
+
+    .stat-box h3{
+      font-size:30px;
+      margin-bottom:6px;
+    }
+
+    .stat-box span{
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .hero-right{
       flex:1;
       min-width:320px;
-      text-align:center;
+      position:relative;
+      height:720px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
 
-    .hero-image img{
+    .phone{
+      position:absolute;
+      width:270px;
+      border-radius:36px;
+      overflow:hidden;
+      box-shadow:0 25px 60px rgba(0,0,0,0.45);
+      transition:.4s;
+      border:8px solid #111827;
+    }
+
+    .phone img{
       width:100%;
-      max-width:600px;
-      border-radius:28px;
-      box-shadow:0 25px 60px rgba(0,0,0,0.25);
+      display:block;
     }
 
-    section{
-      padding:90px 0;
+    .phone:hover{
+      transform:translateY(-10px);
     }
 
-    .section-title{
+    .phone-1{
+      left:0;
+      top:120px;
+      transform:rotate(-12deg);
+    }
+
+    .phone-2{
+      z-index:5;
+    }
+
+    .phone-3{
+      right:0;
+      top:120px;
+      transform:rotate(12deg);
+    }
+
+    /* ========================= */
+    /* DEMO SECTION */
+    /* ========================= */
+
+    .demo-section{
+      padding:120px 0;
+      background:#f8fafc;
+      color:#0f172a;
+    }
+
+    .section-header{
       text-align:center;
-      margin-bottom:60px;
+      margin-bottom:70px;
     }
 
-    .section-title h2{
-      font-size:48px;
-      margin-bottom:18px;
+    .section-tag{
+      display:inline-block;
+      padding:10px 18px;
+      border-radius:30px;
+      background:#dbeafe;
+      color:#2563eb;
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:1px;
+      margin-bottom:22px;
     }
 
-    .section-title p{
-      max-width:800px;
+    .section-header h2{
+      font-size:58px;
+      line-height:1.1;
+      margin-bottom:20px;
+      font-weight:800;
+    }
+
+    .section-header h2 span{
+      color:#2563eb;
+    }
+
+    .section-header p{
+      max-width:760px;
       margin:auto;
       color:#64748b;
       line-height:1.9;
+      font-size:17px;
     }
 
     .demo-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:25px;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
     }
 
     .demo-card{
+      position:relative;
       background:white;
-      border-radius:24px;
+      border-radius:32px;
       overflow:hidden;
-      box-shadow:0 15px 35px rgba(0,0,0,0.05);
-      transition:.3s;
+      box-shadow:0 15px 40px rgba(15,23,42,0.08);
+      transition:.4s;
+      border:1px solid rgba(148,163,184,0.1);
     }
 
     .demo-card:hover{
-      transform:translateY(-8px);
+      transform:translateY(-10px);
     }
 
-    .demo-card img{
+    .card-glow{
+      position:absolute;
+      width:250px;
+      height:250px;
+      background:#2563eb;
+      border-radius:50%;
+      filter:blur(90px);
+      opacity:0.12;
+      top:-100px;
+      right:-100px;
+    }
+
+    .green{
+      background:#22c55e;
+    }
+
+    .purple{
+      background:#7c3aed;
+    }
+
+    .pink{
+      background:#ec4899;
+    }
+
+    .blue{
+      background:#3b82f6;
+    }
+
+    .demo-image{
       width:100%;
-      height:300px;
+      height:320px;
       object-fit:cover;
+      display:block;
     }
 
     .demo-content{
-      padding:25px;
+      padding:28px;
+      position:relative;
+      z-index:2;
     }
 
     .demo-content h3{
-      margin-bottom:12px;
-      font-size:24px;
+      font-size:26px;
+      margin-bottom:16px;
     }
 
     .demo-content p{
       color:#64748b;
       line-height:1.8;
-      margin-bottom:20px;
+      margin-bottom:24px;
+      font-size:15px;
     }
 
-    .view-btn{
-      display:inline-block;
+    .demo-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
       color:#2563eb;
-      font-weight:600;
+      font-weight:700;
+      transition:.3s;
+    }
+
+    .demo-btn:hover{
+      gap:14px;
+    }
+
+    /* ========================= */
+    /* WHY US */
+    /* ========================= */
+
+    .why-section{
+      padding:120px 0;
+      background:#07111f;
     }
 
     .why-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:22px;
-      text-align:center;
+      gap:24px;
     }
 
     .why-card{
-      background:white;
-      padding:35px 25px;
-      border-radius:22px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.05);
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.06);
+      padding:35px 28px;
+      border-radius:28px;
+      backdrop-filter:blur(15px);
+      transition:.4s;
+    }
+
+    .why-card:hover{
+      transform:translateY(-8px);
+      background:rgba(255,255,255,0.06);
+    }
+
+    .why-icon{
+      font-size:40px;
+      margin-bottom:18px;
     }
 
     .why-card h3{
-      margin:18px 0 12px;
+      margin-bottom:14px;
+      font-size:24px;
     }
 
     .why-card p{
-      color:#64748b;
-      line-height:1.8;
-      font-size:14px;
+      color:#94a3b8;
+      line-height:1.9;
+      font-size:15px;
     }
 
-    .cta{
-      background:linear-gradient(135deg,#2563eb,#1d4ed8);
-      color:white;
-      border-radius:35px;
-      padding:70px 40px;
+    /* ========================= */
+    /* CTA */
+    /* ========================= */
+
+    .cta-section{
+      padding:120px 0;
+      background:#f8fafc;
+    }
+
+    .cta-box{
+      background:
+      radial-gradient(circle at top left,#2563eb55,transparent 30%),
+      radial-gradient(circle at bottom right,#7c3aed44,transparent 30%),
+      #0f172a;
+
+      padding:80px 40px;
+      border-radius:40px;
       text-align:center;
+      position:relative;
+      overflow:hidden;
     }
 
-    .cta h2{
-      font-size:48px;
+    .cta-box h2{
+      font-size:56px;
       margin-bottom:20px;
     }
 
-    .cta p{
+    .cta-box p{
+      color:#cbd5e1;
+      line-height:1.9;
       max-width:700px;
       margin:auto;
-      line-height:1.9;
-      margin-bottom:30px;
-      color:#dbeafe;
+      margin-bottom:35px;
+      font-size:18px;
     }
+
+    /* ========================= */
+    /* FOOTER */
+    /* ========================= */
 
     footer{
       background:#020617;
-      color:white;
-      padding:70px 0 35px;
+      padding:80px 0 35px;
     }
 
     .footer-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
       gap:35px;
-      margin-bottom:40px;
+      margin-bottom:45px;
     }
 
     .footer-grid h3{
       margin-bottom:20px;
+      font-size:22px;
     }
 
     .footer-grid p,
     .footer-grid a{
-      color:#cbd5e1;
+      color:#94a3b8;
       line-height:2;
+      font-size:15px;
     }
 
     .copyright{
-      text-align:center;
-      border-top:1px solid rgba(255,255,255,0.08);
+      border-top:1px solid rgba(255,255,255,0.06);
       padding-top:25px;
-      color:#94a3b8;
+      text-align:center;
+      color:#64748b;
     }
+
+    /* ========================= */
+    /* WHATSAPP */
+    /* ========================= */
 
     .whatsapp{
       position:fixed;
       bottom:25px;
       right:25px;
-      width:70px;
-      height:70px;
+      width:72px;
+      height:72px;
       border-radius:50%;
       background:#25D366;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:34px;
       color:white;
-      box-shadow:0 10px 30px rgba(0,0,0,0.25);
+      font-size:34px;
+      box-shadow:0 15px 40px rgba(0,0,0,0.25);
       z-index:999;
+    }
+
+    /* ========================= */
+    /* MOBILE */
+    /* ========================= */
+
+    @media(max-width:992px){
+
+      .hero-left h1{
+        font-size:48px;
+      }
+
+      .hero-right{
+        height:520px;
+      }
+
+      .phone{
+        width:190px;
+      }
+
     }
 
     @media(max-width:768px){
@@ -336,21 +570,46 @@
         display:none;
       }
 
-      .hero-content h1,
-      .section-title h2,
-      .cta h2{
+      .hero{
+        padding-top:120px;
+      }
+
+      .hero-left h1{
         font-size:38px;
       }
 
-      .hero-content p{
+      .hero-left p{
         font-size:16px;
+      }
+
+      .hero-right{
+        height:380px;
+      }
+
+      .phone{
+        width:140px;
+      }
+
+      .section-header h2,
+      .cta-box h2{
+        font-size:38px;
+      }
+
+      .section-header p,
+      .cta-box p{
+        font-size:15px;
       }
 
     }
 
   </style>
+
 </head>
 <body>
+
+<!-- ======================= -->
+<!-- HEADER -->
+<!-- ======================= -->
 
 <header>
 
@@ -359,21 +618,23 @@
     <nav>
 
       <div class="logo">
-        Family Room Technologies
+        Family Room
       </div>
 
       <div class="nav-links">
+
         <a href="#">Home</a>
-        <a href="#demo">Demo Apps</a>
-        <a href="#why">Why Us</a>
+        <a href="#demo-apps">Demo Apps</a>
+        <a href="#why-us">Why Us</a>
         <a href="#contact">Contact</a>
 
         <a
           href="https://wa.me/918521988388"
-          class="btn"
+          class="nav-btn"
         >
           Get Free Quote
         </a>
+
       </div>
 
     </nav>
@@ -382,52 +643,85 @@
 
 </header>
 
+<!-- ======================= -->
+<!-- HERO -->
+<!-- ======================= -->
+
 <section class="hero">
+
+  <div class="hero-glow"></div>
 
   <div class="container hero-wrapper">
 
-    <div class="hero-content">
+    <div class="hero-left">
 
       <div class="hero-badge">
-        🚀 Custom Android App Development Company
+        🚀 Trusted Android App Development Company
       </div>
 
       <h1>
         Custom Android Apps
-        <span>For Every Business</span>
+        <span>Built For Modern Businesses</span>
       </h1>
 
       <p>
         We build modern Android applications including workforce management,
-        delivery tracking, ecommerce systems, business dashboards,
-        and school management applications for global businesses.
+        delivery tracking, ecommerce platforms, business dashboards,
+        and school management systems for global businesses.
       </p>
 
       <div class="hero-buttons">
 
         <a
           href="https://wa.me/918521988388"
-          class="btn"
+          class="primary-btn"
         >
           Chat On WhatsApp
         </a>
 
         <a
-          href="#demo"
-          class="btn secondary-btn"
+          href="#demo-apps"
+          class="secondary-btn"
         >
           Explore Demo Apps
         </a>
 
       </div>
 
+      <div class="hero-stats">
+
+        <div class="stat-box">
+          <h3>5+</h3>
+          <span>Demo Solutions</span>
+        </div>
+
+        <div class="stat-box">
+          <h3>24/7</h3>
+          <span>Support</span>
+        </div>
+
+        <div class="stat-box">
+          <h3>Global</h3>
+          <span>Clients</span>
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="hero-image">
+    <div class="hero-right">
 
-      <img
-        src="https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=1400&auto=format&fit=crop"
-      />
+      <div class="phone phone-1">
+        <img src="assets/screenshots/workforce-management.png">
+      </div>
+
+      <div class="phone phone-2">
+        <img src="assets/screenshots/delivery-app.png">
+      </div>
+
+      <div class="phone phone-3">
+        <img src="assets/screenshots/business-dashboard.png">
+      </div>
 
     </div>
 
@@ -435,18 +729,27 @@
 
 </section>
 
-<section id="demo">
+<!-- ======================= -->
+<!-- DEMO APPS -->
+<!-- ======================= -->
+
+<section class="demo-section" id="demo-apps">
 
   <div class="container">
 
-    <div class="section-title">
+    <div class="section-header">
+
+      <span class="section-tag">
+        EXPLORE DEMO APPS
+      </span>
 
       <h2>
-        Explore Demo Applications
+        Professional Mobile App
+        <span>Solutions</span>
       </h2>
 
       <p>
-        Professional mobile app interfaces built for different industries
+        Explore high-quality demo applications designed for different industries
         and business requirements.
       </p>
 
@@ -454,20 +757,27 @@
 
     <div class="demo-grid">
 
+      <!-- Workforce -->
+
       <div class="demo-card">
 
-        <img src="assets/screenshots/workforce-management.png">
+        <div class="card-glow"></div>
+
+        <img
+          src="assets/screenshots/workforce-management.png"
+          class="demo-image"
+        >
 
         <div class="demo-content">
 
           <h3>Workforce Management</h3>
 
           <p>
-            Employee tracking, attendance,
-            task management and live workforce monitoring.
+            Employee tracking, attendance, route history,
+            live GPS monitoring and task management.
           </p>
 
-          <a href="#" class="view-btn">
+          <a href="#" class="demo-btn">
             View Demo →
           </a>
 
@@ -475,9 +785,16 @@
 
       </div>
 
+      <!-- Delivery -->
+
       <div class="demo-card">
 
-        <img src="assets/screenshots/delivery-app.png">
+        <div class="card-glow green"></div>
+
+        <img
+          src="assets/screenshots/delivery-app.png"
+          class="demo-image"
+        >
 
         <div class="demo-content">
 
@@ -485,10 +802,10 @@
 
           <p>
             Real-time delivery tracking,
-            order monitoring and route management.
+            order management and route optimization systems.
           </p>
 
-          <a href="#" class="view-btn">
+          <a href="#" class="demo-btn">
             View Demo →
           </a>
 
@@ -496,20 +813,27 @@
 
       </div>
 
+      <!-- Dashboard -->
+
       <div class="demo-card">
 
-        <img src="assets/screenshots/business-dashboard.png">
+        <div class="card-glow blue"></div>
+
+        <img
+          src="assets/screenshots/business-dashboard.png"
+          class="demo-image"
+        >
 
         <div class="demo-content">
 
           <h3>Business Dashboards</h3>
 
           <p>
-            Powerful analytics,
-            admin panels and business reporting systems.
+            Powerful admin panels,
+            analytics and modern business reporting systems.
           </p>
 
-          <a href="#" class="view-btn">
+          <a href="#" class="demo-btn">
             View Demo →
           </a>
 
@@ -517,20 +841,27 @@
 
       </div>
 
+      <!-- Ecommerce -->
+
       <div class="demo-card">
 
-        <img src="assets/screenshots/ecommerce-app.png">
+        <div class="card-glow purple"></div>
+
+        <img
+          src="assets/screenshots/ecommerce-app.png"
+          class="demo-image"
+        >
 
         <div class="demo-content">
 
           <h3>Ecommerce Apps</h3>
 
           <p>
-            Shopping applications with
-            products, cart, checkout and order tracking.
+            Shopping applications with products,
+            checkout, payments and order tracking.
           </p>
 
-          <a href="#" class="view-btn">
+          <a href="#" class="demo-btn">
             View Demo →
           </a>
 
@@ -538,20 +869,27 @@
 
       </div>
 
+      <!-- School -->
+
       <div class="demo-card">
 
-        <img src="assets/screenshots/school-management.png">
+        <div class="card-glow pink"></div>
+
+        <img
+          src="assets/screenshots/school-management.png"
+          class="demo-image"
+        >
 
         <div class="demo-content">
 
           <h3>School Management</h3>
 
           <p>
-            Student attendance,
-            timetable, notifications and communication systems.
+            Attendance, timetable,
+            notifications and communication systems.
           </p>
 
-          <a href="#" class="view-btn">
+          <a href="#" class="demo-btn">
             View Demo →
           </a>
 
@@ -565,18 +903,27 @@
 
 </section>
 
-<section id="why">
+<!-- ======================= -->
+<!-- WHY US -->
+<!-- ======================= -->
+
+<section class="why-section" id="why-us">
 
   <div class="container">
 
-    <div class="section-title">
+    <div class="section-header">
 
-      <h2>
-        Why Choose Us
+      <span class="section-tag">
+        WHY CHOOSE US
+      </span>
+
+      <h2 style="color:white;">
+        Modern Apps With
+        <span>Professional UI</span>
       </h2>
 
-      <p>
-        We focus on clean UI, modern technologies and scalable mobile applications.
+      <p style="color:#94a3b8;">
+        We focus on premium interfaces, scalability and business-ready mobile applications.
       </p>
 
     </div>
@@ -584,39 +931,55 @@
     <div class="why-grid">
 
       <div class="why-card">
-        <h3>⚡ Fast Delivery</h3>
+
+        <div class="why-icon">⚡</div>
+
+        <h3>Fast Delivery</h3>
 
         <p>
           Quick development process
           with professional quality output.
         </p>
+
       </div>
 
       <div class="why-card">
-        <h3>📱 Modern UI</h3>
+
+        <div class="why-icon">📱</div>
+
+        <h3>Modern UI</h3>
 
         <p>
           Beautiful and user-friendly
           mobile application interfaces.
         </p>
+
       </div>
 
       <div class="why-card">
-        <h3>☁️ Scalable Apps</h3>
+
+        <div class="why-icon">☁️</div>
+
+        <h3>Scalable Apps</h3>
 
         <p>
           Applications designed
-          for business growth and future scaling.
+          for future business growth.
         </p>
+
       </div>
 
       <div class="why-card">
-        <h3>🔒 Secure Systems</h3>
+
+        <div class="why-icon">🔒</div>
+
+        <h3>Secure Systems</h3>
 
         <p>
           Secure authentication,
           cloud storage and protected APIs.
         </p>
+
       </div>
 
     </div>
@@ -625,11 +988,15 @@
 
 </section>
 
-<section>
+<!-- ======================= -->
+<!-- CTA -->
+<!-- ======================= -->
+
+<section class="cta-section">
 
   <div class="container">
 
-    <div class="cta">
+    <div class="cta-box">
 
       <h2>
         Have An App Idea?
@@ -642,7 +1009,7 @@
 
       <a
         href="https://wa.me/918521988388"
-        class="btn"
+        class="primary-btn"
       >
         Get Free Consultation
       </a>
@@ -653,6 +1020,10 @@
 
 </section>
 
+<!-- ======================= -->
+<!-- FOOTER -->
+<!-- ======================= -->
+
 <footer id="contact">
 
   <div class="container">
@@ -661,35 +1032,28 @@
 
       <div>
 
-        <h3>
-          Family Room Technologies
-        </h3>
+        <h3>Family Room Technologies</h3>
 
         <p>
-          Custom Android app development company building
-          modern business software solutions worldwide.
+          Professional Android app development and business software solutions.
         </p>
 
       </div>
 
       <div>
 
-        <h3>
-          Services
-        </h3>
+        <h3>Services</h3>
 
-        <p>Android App Development</p>
+        <p>Android Apps</p>
         <p>Tracking Systems</p>
-        <p>Ecommerce Apps</p>
         <p>Business Dashboards</p>
+        <p>Ecommerce Solutions</p>
 
       </div>
 
       <div>
 
-        <h3>
-          Contact
-        </h3>
+        <h3>Contact</h3>
 
         <p>Email: officialfamilyroom@outlook.com</p>
         <p>WhatsApp: +91 8521988388</p>
@@ -706,6 +1070,10 @@
   </div>
 
 </footer>
+
+<!-- ======================= -->
+<!-- WHATSAPP -->
+<!-- ======================= -->
 
 <a
   href="https://wa.me/918521988388"
